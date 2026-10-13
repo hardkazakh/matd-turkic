@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Fixed-effects regression of logit transfer AUROC on language relation.}
+\label{tab:famscript}
+\begin{tabular}{lcccc}
+\toprule
+Detector & same family & perm. $p$ (family) & same script & perm. $p$ (script) \\
+\midrule
+mDeBERTa-v3 & +0.696 [+0.527, +0.887] & 0.133 & +0.424 [+0.299, +0.579] & 0.200 \\
+XLM-R & +0.603 [+0.470, +0.756] & 0.133 & +0.279 [+0.162, +0.422] & 0.400 \\
+Char n-gram LR & -0.009 [-0.122, +0.100] & 1.000 & +0.793 [+0.682, +0.915] & 0.100 \\
+Stylometric LR & +0.125 [+0.042, +0.216] & 0.400 & +0.385 [+0.297, +0.481] & 0.100 \\
+\bottomrule
+\end{tabular}
+\\[2pt]\parbox{\linewidth}{\footnotesize Exact permutation over language labels; with six languages the smallest attainable $p$ is 0.067 (family) and 0.10 (script).}
+\end{table}

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{RQ2 robustness check: family and script coefficients with seed + document bootstrap 95\% CIs, and their range when any one language pair (15 subsets) or any one language (6 subsets) is removed.}
+\label{tab:rq2seed}
+\begin{tabular}{lccccccc}
+\toprule
+Detector & seeds & same script & same family & $P(\beta_{fam}\le\beta_{scr})$ & family $>$ script (subsets) & family range & script range \\
+\midrule
+mDeBERTa-v3 & 3 & +0.42 [+0.24, +0.66] & +0.70 [+0.37, +0.99] & 0.070 & 21/21 & [+0.36, +1.67] & [+0.03, +0.89] \\
+XLM-R & 3 & +0.28 [+0.14, +0.47] & +0.60 [+0.34, +0.88] & 0.027 & 21/21 & [+0.28, +1.40] & [-0.10, +0.75] \\
+Char n-gram LR & 1 & +0.79 [+0.68, +0.91] & -0.01 [-0.12, +0.10] & 1.000 & 0/21 & [-0.26, +0.54] & [+0.45, +1.28] \\
+Stylometric LR & 1 & +0.39 [+0.30, +0.48] & +0.13 [+0.04, +0.22] & 1.000 & 2/21 & [+0.01, +0.72] & [+0.21, +0.56] \\
+\bottomrule
+\end{tabular}
+\\[2pt]\parbox{\linewidth}{\footnotesize Exploratory (notebook 13). Deterministic detectors (n-gram, stylometric) have one seed, so their CIs are document-only.}
+\end{table}

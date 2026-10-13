@@ -1,0 +1,414 @@
+{
+ "config_version": "1.2",
+ "data_version": "v1",
+ "created_utc": "2026-10-03T08:23:17.468958+00:00",
+ "paths": {
+  "config": "00_admin/config",
+  "logs": "00_admin/logs",
+  "env": "00_admin/env",
+  "registry": "00_admin/registry",
+  "raw_external": "01_raw/external",
+  "raw_wiki": "01_raw/wikipedia",
+  "raw_gen": "01_raw/generations",
+  "validated": "02_validated",
+  "processed": "03_processed",
+  "splits": "04_splits",
+  "attacks": "05_attacks",
+  "models": "06_models",
+  "predictions": "07_predictions",
+  "results": "08_results",
+  "stats": "09_statistics",
+  "figures": "10_figures_tables/figures",
+  "tables": "10_figures_tables/tables",
+  "manuscript": "11_manuscript",
+  "notebooks": "notebooks"
+ },
+ "languages": {
+  "kk": {
+   "name": "Kazakh",
+   "wiki": "kk",
+   "family": "Turkic",
+   "script": "Cyrillic",
+   "lid": "kaz_Cyrl",
+   "nllb": "kaz_Cyrl"
+  },
+  "ky": {
+   "name": "Kyrgyz",
+   "wiki": "ky",
+   "family": "Turkic",
+   "script": "Cyrillic",
+   "lid": "kir_Cyrl",
+   "nllb": "kir_Cyrl"
+  },
+  "uz": {
+   "name": "Uzbek",
+   "wiki": "uz",
+   "family": "Turkic",
+   "script": "Latin",
+   "lid": "uzn_Latn",
+   "nllb": "uzn_Latn"
+  },
+  "tr": {
+   "name": "Turkish",
+   "wiki": "tr",
+   "family": "Turkic",
+   "script": "Latin",
+   "lid": "tur_Latn",
+   "nllb": "tur_Latn"
+  },
+  "ru": {
+   "name": "Russian",
+   "wiki": "ru",
+   "family": "Indo-European",
+   "branch": "Slavic",
+   "script": "Cyrillic",
+   "lid": "rus_Cyrl",
+   "nllb": "rus_Cyrl"
+  },
+  "en": {
+   "name": "English",
+   "wiki": "en",
+   "family": "Indo-European",
+   "branch": "Germanic",
+   "script": "Latin",
+   "lid": "eng_Latn",
+   "nllb": "eng_Latn"
+  }
+ },
+ "turkic_targets": [
+  "kk",
+  "ky",
+  "uz",
+  "tr"
+ ],
+ "data": {
+  "wiki_cutoff_utc": "2022-11-01T00:00:00Z",
+  "n_candidates_per_lang": 4000,
+  "n_topics_target": 1000,
+  "gen_oversample": 1.25,
+  "min_words": 40,
+  "max_words": 200,
+  "langid_min_prob": 0.5,
+  "minhash_threshold": 0.8,
+  "minhash_perm": 128,
+  "split_pct": {
+   "train": 70,
+   "val": 10,
+   "test": 20
+  },
+  "user_agent": "MATD-research/1.0 (SDU University; academic research)",
+  "gen_margin": 1.15,
+  "wiki_min_bytes": 2500,
+  "template_df": 5,
+  "template_max_share": 0.3,
+  "length_tol_words": 10,
+  "length_tol_frac": 0.25,
+  "max_topup_rounds": 4,
+  "strip_parentheticals": true
+ },
+ "generators": {
+  "gpt41mini": {
+   "model": "openai/gpt-4.1-mini",
+   "family": "openai"
+  },
+  "haiku45": {
+   "model": "anthropic/claude-haiku-4.5",
+   "family": "anthropic"
+  },
+  "gem25lite": {
+   "model": "google/gemini-2.5-flash-lite",
+   "family": "google"
+  },
+  "llama33_70b": {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "family": "meta"
+  },
+  "dsv3": {
+   "model": "deepseek/deepseek-chat-v3-0324",
+   "family": "deepseek"
+  }
+ },
+ "generation": {
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "max_tokens": 700,
+  "n_workers": 8,
+  "budget_cap_usd": 150.0,
+  "timeout_s": 120,
+  "prompts": {
+   "p0": "Please, write one paragraph about the following topic in {lang_name}: {title}.",
+   "p1": "Please, write one paragraph in {lang_name} about the following topic: {title}. Avoid repetitive sentence structures and predictable phrasing. When applicable, include concrete facts such as specific numbers, dates, or historical references. Avoid overly flattering or exaggerated language, and instead focus on delivering clear, informative, and relevant content."
+  }
+ },
+ "attacks": {
+  "T1_paraphrase": {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "temperature": 0.7,
+   "max_tokens": 900,
+   "prompt": "Paraphrase the following {lang_name} text in {lang_name}. Keep the meaning and roughly the same length, but change the wording and sentence structure. Output only the paraphrased text.\n\n{text}"
+  },
+  "T2_backtranslation": {
+   "model": "facebook/nllb-200-distilled-600M",
+   "pivot": {
+    "default": "eng_Latn",
+    "en": "rus_Cyrl"
+   }
+  },
+  "T3_homoglyph": {
+   "levels": [
+    0.05,
+    0.15
+   ]
+  },
+  "T4_typo": {
+   "levels": [
+    0.05,
+    0.15
+   ]
+  },
+  "similarity_model": "sentence-transformers/LaBSE"
+ },
+ "seeds": [
+  13,
+  42,
+  2026
+ ],
+ "finetune": {
+  "backend": "tensorflow",
+  "models": {
+   "mdeberta": {
+    "class": "DebertaV3TextClassifier",
+    "preset": "deberta_v3_base_multi"
+   },
+   "xlmr": {
+    "class": "XLMRobertaTextClassifier",
+    "preset": "xlm_roberta_base_multi"
+   }
+  },
+  "seq_len": 256,
+  "batch_size": 32,
+  "epochs": 3,
+  "lr": 2e-05,
+  "weight_decay": 0.01,
+  "warmup_frac": 0.1,
+  "early_stopping_patience": 1,
+  "save_checkpoint_for": [
+   "E2__all"
+  ]
+ },
+ "ngram": {
+  "analyzer": "char_wb",
+  "ngram_range": [
+   1,
+   5
+  ],
+  "max_features": 300000,
+  "C_grid": [
+   0.1,
+   1.0,
+   10.0
+  ]
+ },
+ "zeroshot": {
+  "pairs": {
+   "generic": {
+    "observer": "Qwen/Qwen3.5-4B-Base",
+    "performer": "Qwen/Qwen3.5-4B"
+   },
+   "kazakh": {
+    "observer": "issai/Qwen3.5-4B-Base-Kazakh",
+    "performer": "issai/Qwen3.5-4B-Kazakh"
+   }
+  },
+  "max_tokens": 256,
+  "batch_size": 4,
+  "dtype": "bfloat16"
+ },
+ "experiments": {
+  "E1": [
+   {
+    "name": "kk",
+    "train_langs": [
+     "kk"
+    ]
+   },
+   {
+    "name": "ky",
+    "train_langs": [
+     "ky"
+    ]
+   },
+   {
+    "name": "uz",
+    "train_langs": [
+     "uz"
+    ]
+   },
+   {
+    "name": "tr",
+    "train_langs": [
+     "tr"
+    ]
+   },
+   {
+    "name": "ru",
+    "train_langs": [
+     "ru"
+    ]
+   },
+   {
+    "name": "en",
+    "train_langs": [
+     "en"
+    ]
+   }
+  ],
+  "E2": [
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ]
+   },
+   {
+    "name": "no-kk",
+    "train_langs": [
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ]
+   },
+   {
+    "name": "no-ky",
+    "train_langs": [
+     "kk",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ]
+   },
+   {
+    "name": "no-uz",
+    "train_langs": [
+     "kk",
+     "ky",
+     "tr",
+     "ru",
+     "en"
+    ]
+   },
+   {
+    "name": "no-tr",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "ru",
+     "en"
+    ]
+   }
+  ],
+  "E3": [
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "heldout_family": "openai"
+   },
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "heldout_family": "anthropic"
+   },
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "heldout_family": "google"
+   },
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "heldout_family": "meta"
+   },
+   {
+    "name": "all",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "heldout_family": "deepseek"
+   }
+  ],
+  "E6": [
+   {
+    "name": "all-aug",
+    "train_langs": [
+     "kk",
+     "ky",
+     "uz",
+     "tr",
+     "ru",
+     "en"
+    ],
+    "augment": [
+     "T3_homoglyph",
+     "T4_typo"
+    ],
+    "optional": true
+   }
+  ]
+ },
+ "stats": {
+  "bootstrap_B": 2000,
+  "alpha": 0.05,
+  "fpr_points": [
+   0.01,
+   0.05
+  ]
+ },
+ "external": {
+  "coling_kk_source": "data/data/coling2025_kazakh.jsonl"
+ },
+ "tools": {
+  "glotlid_repo": "cis-lmu/glotlid"
+ }
+}

@@ -1,0 +1,18 @@
+figure,sources,caption_draft
+fig1_main_auroc,08_results/metrics_agg.csv,Test AUROC per language. Fine-tuned/shallow detectors trained on all six languages; zero-shot detectors untrained.
+fig2_transfer_matrices,09_statistics/rq2_transfer_matrix.csv,Cross-lingual transfer: AUROC of monolingual detectors (rows) on each test language (columns).
+fig3_family_vs_script,09_statistics/rq2_transfer_matrix.csv;09_statistics/rq2_family_vs_script.csv,Transfer by language relation (a) and fixed-effects family/script coefficients (b).
+fig4_rq1_lolo,09_statistics/rq1_multi_vs_mono.csv;09_statistics/rq2_lolo.csv,Effect of multilingual training (a) and of withholding the target language (b) on Turkic targets.
+fig5_lofo_unseen_family,09_statistics/rq3_lofo.csv,Leave-one-family-out: change in AUROC when the generator family is excluded from training.
+fig6_robustness,09_statistics/rq4_robustness.csv,"Change in AUROC under paraphrasing, back-translation, homoglyph and typo transformations."
+fig7_homoglyph_defence,09_statistics/rq4_defence.csv,Homoglyph substitution and recovery with Unicode normalisation + confusable mapping.
+fig8_external_coling_kk,09_statistics/external_coling_kk.csv,"External Kazakh test set (COLING-2025, GPT-4o): artefact sensitivity (a) and training regime (b)."
+fig9_threshold_transfer,09_statistics/posthoc/a4_threshold_transfer.csv,Threshold transfer: realised FPR and TPR on each test language at the 5%-FPR validation threshold of the training language.
+fig10_auroc_by_generator,08_results/error_generator_prompt.csv,AUROC per generator (mean over languages).
+fig11_rq5_mechanism,09_statistics/rq5_language_adapted_scorer.csv;09_statistics/posthoc/b_bpc_auroc.csv;09_statistics/posthoc/b_memorisation_probe.csv,Kazakh-adapted vs generic scoring LM: per-token vs per-character log-likelihood AUROC (a) and the human-vs-machine likelihood shift (b).
+fig12_llama_unseen_or_atypical,09_statistics/posthoc/c_lofo_relative_error.csv;09_statistics/posthoc/c_generator_descriptors.csv;09_statistics/posthoc/c_generator_atypicality.csv,Relative unseen-family error (a) and surface profile / atypicality of each generator's texts (b).
+fig13_fusion,09_statistics/posthoc/d_ensemble.csv,"Rank-average fusion with mDeBERTa: change in AUROC (a) and TPR@5%FPR (b) on clean, attacked and external data."
+figA1_rq5_language_adapted_scorer,09_statistics/rq5_language_adapted_scorer.csv,Kazakh-adapted vs generic scoring model for zero-shot detectors (Kazakh highlighted).
+figA2_length_tertiles,08_results/error_length.csv,AUROC within text-length tertiles (mean over languages).
+figA3_error_overlap,08_results/error_overlap_jaccard.csv,Overlap of misclassified test documents between detectors (low = complementary).
+figA4_dataset_shortcut_audit,08_results/data_audit.csv,Dataset audit: how well surface features alone separate human from machine text.

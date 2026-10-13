@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Test AUROC [95\% CI] per language. Fine-tuned and shallow detectors: multilingual training (E2/all, mean of seeds); zero-shot: no training.}
+\label{tab:main}
+\begin{tabular}{llccccccc}
+\toprule
+Detector & Type & kk & ky & uz & tr & ru & en & all \\
+\midrule
+mDeBERTa-v3 & fine-tuned & \textbf{0.995}\,{\scriptsize[0.987, 0.999]} & \textbf{0.999}\,{\scriptsize[0.998, 1.000]} & \textbf{0.992}\,{\scriptsize[0.985, 0.998]} & \textbf{0.995}\,{\scriptsize[0.987, 1.000]} & \textbf{0.997}\,{\scriptsize[0.993, 0.999]} & \textbf{0.994}\,{\scriptsize[0.988, 0.998]} & \textbf{0.995}\,{\scriptsize[0.993, 0.997]} \\
+XLM-R & fine-tuned & \textbf{0.995}\,{\scriptsize[0.990, 0.999]} & 0.996\,{\scriptsize[0.990, 0.999]} & 0.989\,{\scriptsize[0.981, 0.995]} & 0.994\,{\scriptsize[0.986, 0.999]} & 0.992\,{\scriptsize[0.985, 0.997]} & 0.987\,{\scriptsize[0.977, 0.995]} & 0.992\,{\scriptsize[0.989, 0.995]} \\
+Char n-gram LR & shallow & 0.976\,{\scriptsize[0.960, 0.991]} & 0.987\,{\scriptsize[0.977, 0.995]} & 0.975\,{\scriptsize[0.959, 0.987]} & 0.971\,{\scriptsize[0.956, 0.986]} & 0.968\,{\scriptsize[0.951, 0.982]} & 0.977\,{\scriptsize[0.964, 0.987]} & 0.976\,{\scriptsize[0.970, 0.981]} \\
+Stylometric LR & shallow & 0.911\,{\scriptsize[0.880, 0.942]} & 0.897\,{\scriptsize[0.861, 0.927]} & 0.893\,{\scriptsize[0.859, 0.925]} & 0.794\,{\scriptsize[0.751, 0.836]} & 0.919\,{\scriptsize[0.891, 0.944]} & 0.877\,{\scriptsize[0.838, 0.910]} & 0.882\,{\scriptsize[0.868, 0.895]} \\
+Binoculars & zero-shot & 0.881\,{\scriptsize[0.846, 0.915]} & 0.913\,{\scriptsize[0.883, 0.940]} & 0.902\,{\scriptsize[0.872, 0.929]} & 0.857\,{\scriptsize[0.818, 0.892]} & 0.853\,{\scriptsize[0.816, 0.888]} & 0.770\,{\scriptsize[0.719, 0.821]} & 0.853\,{\scriptsize[0.838, 0.867]} \\
+Binoculars (kk LM) & zero-shot & 0.886\,{\scriptsize[0.849, 0.919]} & 0.911\,{\scriptsize[0.881, 0.938]} & 0.901\,{\scriptsize[0.871, 0.930]} & 0.835\,{\scriptsize[0.795, 0.870]} & 0.873\,{\scriptsize[0.839, 0.906]} & 0.744\,{\scriptsize[0.693, 0.794]} & 0.817\,{\scriptsize[0.799, 0.832]} \\
+Fast-DetectGPT & zero-shot & 0.810\,{\scriptsize[0.766, 0.855]} & 0.854\,{\scriptsize[0.812, 0.893]} & 0.853\,{\scriptsize[0.815, 0.887]} & 0.821\,{\scriptsize[0.780, 0.859]} & 0.807\,{\scriptsize[0.764, 0.847]} & 0.746\,{\scriptsize[0.696, 0.796]} & 0.810\,{\scriptsize[0.792, 0.826]} \\
+Fast-DetectGPT (kk LM) & zero-shot & 0.813\,{\scriptsize[0.767, 0.856]} & 0.877\,{\scriptsize[0.841, 0.912]} & 0.839\,{\scriptsize[0.798, 0.875]} & 0.715\,{\scriptsize[0.669, 0.762]} & 0.841\,{\scriptsize[0.803, 0.880]} & 0.701\,{\scriptsize[0.648, 0.753]} & 0.763\,{\scriptsize[0.745, 0.781]} \\
+Log-likelihood & zero-shot & 0.918\,{\scriptsize[0.891, 0.946]} & 0.929\,{\scriptsize[0.900, 0.956]} & 0.924\,{\scriptsize[0.895, 0.949]} & 0.912\,{\scriptsize[0.883, 0.938]} & 0.823\,{\scriptsize[0.781, 0.867]} & 0.827\,{\scriptsize[0.782, 0.871]} & 0.870\,{\scriptsize[0.855, 0.884]} \\
+Log-likelihood (kk LM) & zero-shot & 0.660\,{\scriptsize[0.609, 0.713]} & 0.853\,{\scriptsize[0.813, 0.892]} & 0.899\,{\scriptsize[0.866, 0.927]} & 0.871\,{\scriptsize[0.836, 0.903]} & 0.858\,{\scriptsize[0.823, 0.892]} & 0.822\,{\scriptsize[0.774, 0.866]} & 0.778\,{\scriptsize[0.759, 0.798]} \\
+Log-rank & zero-shot & 0.924\,{\scriptsize[0.899, 0.950]} & 0.931\,{\scriptsize[0.903, 0.956]} & 0.923\,{\scriptsize[0.895, 0.947]} & 0.918\,{\scriptsize[0.889, 0.943]} & 0.830\,{\scriptsize[0.790, 0.873]} & 0.837\,{\scriptsize[0.793, 0.879]} & 0.877\,{\scriptsize[0.863, 0.890]} \\
+Log-rank (kk LM) & zero-shot & 0.696\,{\scriptsize[0.645, 0.747]} & 0.852\,{\scriptsize[0.813, 0.889]} & 0.899\,{\scriptsize[0.868, 0.926]} & 0.881\,{\scriptsize[0.847, 0.911]} & 0.847\,{\scriptsize[0.812, 0.884]} & 0.825\,{\scriptsize[0.777, 0.868]} & 0.796\,{\scriptsize[0.777, 0.814]} \\
+\bottomrule
+\end{tabular}
+\end{table}

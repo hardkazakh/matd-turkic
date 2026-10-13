@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\small
+\caption{True-positive rate at 1\% false-positive rate (test split; mean of seeds).}
+\label{tab:tpr1}
+\begin{tabular}{lccccccc}
+\toprule
+Detector & kk & ky & uz & tr & ru & en & all \\
+\midrule
+mDeBERTa-v3 & 0.93 & 0.97 & 0.97 & 0.97 & 0.95 & 0.88 & 0.96 \\
+XLM-R & 0.96 & 0.86 & 0.78 & 0.91 & 0.91 & 0.54 & 0.82 \\
+Char n-gram LR & 0.70 & 0.90 & 0.71 & 0.84 & 0.67 & 0.65 & 0.71 \\
+Stylometric LR & 0.06 & 0.08 & 0.09 & 0.05 & 0.10 & 0.32 & 0.10 \\
+Binoculars & 0.36 & 0.47 & 0.47 & 0.19 & 0.19 & 0.17 & 0.30 \\
+Binoculars (kk LM) & 0.43 & 0.29 & 0.32 & 0.15 & 0.06 & 0.12 & 0.19 \\
+Fast-DetectGPT & 0.31 & 0.15 & 0.22 & 0.11 & 0.11 & 0.15 & 0.18 \\
+Fast-DetectGPT (kk LM) & 0.20 & 0.26 & 0.28 & 0.04 & 0.11 & 0.07 & 0.07 \\
+Log-likelihood & 0.09 & 0.09 & 0.12 & 0.28 & 0.01 & 0.08 & 0.09 \\
+Log-likelihood (kk LM) & 0.06 & 0.13 & 0.05 & 0.21 & 0.12 & 0.04 & 0.06 \\
+Log-rank & 0.45 & 0.13 & 0.19 & 0.34 & 0.03 & 0.17 & 0.13 \\
+Log-rank (kk LM) & 0.06 & 0.10 & 0.08 & 0.25 & 0.12 & 0.08 & 0.08 \\
+\bottomrule
+\end{tabular}
+\end{table}

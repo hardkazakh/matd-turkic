@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering
+\small
+\caption{True-positive rate at 1\% and 5\% false-positive rate (test split; oracle threshold per evaluation set; mean of seeds) with 95\% bootstrap CI (threshold re-estimated in every resample).}
+\label{tab:lowfpr}
+\begin{tabular}{lcccccccc}
+\toprule
+Detector & TPR@1\% (all) & TPR@5\% (all) & kk @5\% & ky @5\% & uz @5\% & tr @5\% & ru @5\% & en @5\% \\
+\midrule
+mDeBERTa-v3 & 0.96\,{\scriptsize[0.94, 0.97]} & 0.98\,{\scriptsize[0.97, 0.99]} & 0.98 & 1.00 & 0.98 & 0.99 & 0.98 & 0.97 \\
+XLM-R & 0.82\,{\scriptsize[0.74, 0.92]} & 0.98\,{\scriptsize[0.97, 0.99]} & 0.98 & 1.00 & 0.97 & 0.98 & 0.97 & 0.96 \\
+Char n-gram LR & 0.71\,{\scriptsize[0.63, 0.78]} & 0.90\,{\scriptsize[0.87, 0.92]} & 0.91 & 0.93 & 0.94 & 0.88 & 0.83 & 0.90 \\
+Stylometric LR & 0.10\,{\scriptsize[0.05, 0.20]} & 0.47\,{\scriptsize[0.40, 0.53]} & 0.50 & 0.43 & 0.33 & 0.35 & 0.61 & 0.52 \\
+Binoculars & 0.30\,{\scriptsize[0.26, 0.38]} & 0.55\,{\scriptsize[0.49, 0.59]} & 0.64 & 0.70 & 0.67 & 0.50 & 0.54 & 0.44 \\
+Binoculars (kk LM) & 0.19\,{\scriptsize[0.12, 0.24]} & 0.41\,{\scriptsize[0.36, 0.46]} & 0.61 & 0.62 & 0.62 & 0.38 & 0.44 & 0.37 \\
+Fast-DetectGPT & 0.18\,{\scriptsize[0.14, 0.25]} & 0.40\,{\scriptsize[0.36, 0.45]} & 0.50 & 0.51 & 0.52 & 0.34 & 0.31 & 0.37 \\
+Fast-DetectGPT (kk LM) & 0.07\,{\scriptsize[0.04, 0.11]} & 0.23\,{\scriptsize[0.18, 0.29]} & 0.36 & 0.45 & 0.44 & 0.14 & 0.28 & 0.24 \\
+Log-likelihood & 0.09\,{\scriptsize[0.03, 0.17]} & 0.41\,{\scriptsize[0.35, 0.49]} & 0.70 & 0.58 & 0.64 & 0.52 & 0.12 & 0.30 \\
+Log-likelihood (kk LM) & 0.06\,{\scriptsize[0.04, 0.11]} & 0.24\,{\scriptsize[0.20, 0.29]} & 0.14 & 0.22 & 0.51 & 0.32 & 0.37 & 0.30 \\
+Log-rank & 0.13\,{\scriptsize[0.06, 0.23]} & 0.43\,{\scriptsize[0.37, 0.49]} & 0.74 & 0.58 & 0.66 & 0.58 & 0.20 & 0.31 \\
+Log-rank (kk LM) & 0.08\,{\scriptsize[0.05, 0.13]} & 0.27\,{\scriptsize[0.20, 0.34]} & 0.17 & 0.27 & 0.55 & 0.46 & 0.36 & 0.24 \\
+\bottomrule
+\end{tabular}
+\\[2pt]\parbox{\linewidth}{\footnotesize With $n\approx185$--$211$ human test texts per language the FPR resolution is $\approx0.5$\%, so per-language TPR@1\%FPR is unstable and only the pooled value ($n=1159$) is reported.}
+\end{table}

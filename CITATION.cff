@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below. A paper reference will be added on publication."
+title: "Cross-lingual generalisation and robustness of multilingual AI-text detectors: code and data (Turkic languages)"
+type: software
+authors:
+  - family-names: "Sharimbayev"
+    given-names: "Batyr"
+    orcid: "https://orcid.org/0009-0006-3323-231X"
+    affiliation: "SDU University, Kaskelen, Kazakhstan"
+license: Apache-2.0
+repository-code: "https://github.com/hardkazakh/matd-turkic"
+date-released: "2026-10-13"
+keywords: [machine-generated text detection, cross-lingual transfer, adversarial robustness, Turkic languages, Kazakh, low-resource languages]

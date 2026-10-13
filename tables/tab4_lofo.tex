@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{$\Delta$AUROC when the generator family is unseen in training (pooled over languages).}
+\label{tab:lofo}
+\begin{tabular}{lccccc}
+\toprule
+Detector & openai & anthropic & google & meta & deepseek \\
+\midrule
+mDeBERTa-v3 & +0.000 & -0.003 & +0.000 & -0.043 & -0.003 \\
+XLM-R & +0.001 & +0.001 & -0.001 & -0.038 & +0.000 \\
+Char n-gram LR & -0.003 & -0.007 & -0.007 & -0.044 & -0.009 \\
+Stylometric LR & -0.006 & -0.010 & -0.005 & -0.050 & -0.007 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\small
+\caption{External test on the COLING-2025 Kazakh subset (GPT-4o): raw vs.\ normalised formatting.}
+\label{tab:external}
+\begin{tabular}{lccc}
+\toprule
+detector & model & norm & raw \\
+\midrule
+Binoculars & zero-shot & 0.824\,{\scriptsize[0.807, 0.841]} & 0.847\,{\scriptsize[0.831, 0.863]} \\
+Binoculars (kk LM) & zero-shot & 0.829\,{\scriptsize[0.812, 0.845]} & 0.862\,{\scriptsize[0.848, 0.876]} \\
+Fast-DetectGPT & zero-shot & 0.750\,{\scriptsize[0.730, 0.768]} & 0.774\,{\scriptsize[0.756, 0.792]} \\
+Fast-DetectGPT (kk LM) & zero-shot & 0.772\,{\scriptsize[0.754, 0.790]} & 0.802\,{\scriptsize[0.785, 0.820]} \\
+Log-likelihood & zero-shot & 0.905\,{\scriptsize[0.892, 0.917]} & 0.913\,{\scriptsize[0.901, 0.925]} \\
+Log-likelihood (kk LM) & zero-shot & 0.688\,{\scriptsize[0.668, 0.709]} & 0.695\,{\scriptsize[0.674, 0.716]} \\
+Log-rank & zero-shot & 0.896\,{\scriptsize[0.883, 0.909]} & 0.903\,{\scriptsize[0.890, 0.915]} \\
+Log-rank (kk LM) & zero-shot & 0.699\,{\scriptsize[0.678, 0.720]} & 0.705\,{\scriptsize[0.684, 0.725]} \\
+mDeBERTa-v3 & E1_kk & 0.990\,{\scriptsize[0.987, 0.992]} & 0.991\,{\scriptsize[0.988, 0.993]} \\
+mDeBERTa-v3 & E2_all & 0.996\,{\scriptsize[0.994, 0.999]} & 0.997\,{\scriptsize[0.994, 0.999]} \\
+mDeBERTa-v3 & E3_no_openai & 0.996\,{\scriptsize[0.993, 0.998]} & 0.996\,{\scriptsize[0.993, 0.999]} \\
+Char n-gram LR & E1_kk & 0.991\,{\scriptsize[0.987, 0.994]} & 0.990\,{\scriptsize[0.987, 0.994]} \\
+Char n-gram LR & E2_all & 0.990\,{\scriptsize[0.987, 0.993]} & 0.990\,{\scriptsize[0.987, 0.993]} \\
+Char n-gram LR & E3_no_openai & 0.988\,{\scriptsize[0.984, 0.992]} & 0.988\,{\scriptsize[0.984, 0.992]} \\
+Stylometric LR & E1_kk & 0.900\,{\scriptsize[0.887, 0.913]} & 0.897\,{\scriptsize[0.885, 0.910]} \\
+Stylometric LR & E2_all & 0.887\,{\scriptsize[0.872, 0.901]} & 0.876\,{\scriptsize[0.861, 0.890]} \\
+Stylometric LR & E3_no_openai & 0.885\,{\scriptsize[0.870, 0.899]} & 0.875\,{\scriptsize[0.861, 0.890]} \\
+XLM-R & E1_kk & 0.972\,{\scriptsize[0.967, 0.977]} & 0.973\,{\scriptsize[0.968, 0.978]} \\
+XLM-R & E2_all & 0.994\,{\scriptsize[0.991, 0.997]} & 0.994\,{\scriptsize[0.991, 0.997]} \\
+XLM-R & E3_no_openai & 0.996\,{\scriptsize[0.993, 0.998]} & 0.996\,{\scriptsize[0.994, 0.998]} \\
+\bottomrule
+\end{tabular}
+\end{table}
